@@ -8,15 +8,17 @@ $GLOBALS['normalizeChars'] = array(
     'ï'=>'i', 'ð'=>'o', 'ñ'=>'n', 'ò'=>'o', 'ó'=>'o', 'ô'=>'o', 'õ'=>'o', 'ö'=>'o', 'ø'=>'o', 'ù'=>'u', 
     'ú'=>'u', 'û'=>'u', 'ý'=>'y', 'ý'=>'y', 'þ'=>'b', 'ÿ'=>'y', 'ƒ'=>'f'
 );
-require_once('Survey.php');
 // $handle = fopen("test.csv", "r");
 //$handle = fopen("./assets/consortium_level_2012/CSV/Sheet_1.csv", "r");
 
 //File Configs
-$base  			= getcwd().'/assets/';		//prod
+$base  			= getcwd().'/assets/';
+//$base                   = './../../assets/'; 
 $sub_dir 		= 'consortium_level_2012/';
 $type			= 'CSV/';
 $dir 			= $base.$sub_dir.$type;
+
+echo $dir;
 
 $config = new StdClass();
 $config->dir 	= $dir;
