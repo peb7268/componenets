@@ -1,0 +1,150 @@
+/*-- Rest ------------------------------------------------------------------------*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {margin: 0;padding: 0;border: 0;outline: 0;font-weight: inherit;font-style: inherit;font-size: 100%;font-family: inherit;vertical-align: baseline;}
+
+:focus {outline: 0;}
+body {line-height: 1;color: black;background: white;}
+ol, ul {list-style: none;}
+
+table {border-collapse: separate;border-spacing: 0;}
+caption, th, td {text-align: left;font-weight: normal;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: "";}
+blockquote, q {quotes: "" "";}
+
+a { text-decoration: none; }
+li { list-style: none; }
+p { margin: 0px; line-height: 1.2; }
+h1, h2, h3, h4 { margin: 4px 0 0 0; }
+
+/*-- Utility Styles ------------------------------------------------------------------*/
+ .clearfix:after {
+    content: ' ';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+/*-- Global Styles -------------------------------------------------------------------------------------------------*/
+.header(@fontsize, @color){
+	font-family: 'Doppio One', sans-serif;
+	font-size: @fontsize;
+	color: @color;
+}
+.heading, .question > p {
+	.header(12px, #333);
+}
+.border_radius(@border_radius){
+	-webkit-border-radius: @border_radius;
+	-moz-border-radius: @border_radius;
+	border-radius: @border_radius;
+}
+.btn_box_shadow(@highlight){
+	-moz-box-shadow: 0 1px @highlight inset;
+	-webkit-box-shadow: 0 1px @highlight inset;
+	box-shadow: 0 1px @highlight inset;
+}
+.button(@font_color, @text_shadow, @bgcolor, @secondary_color, @border_radius){
+		color: @font_color;
+		font-weight: bold;
+		line-height: 1.4545em;
+		text-shadow: 0 -1px @text_shadow;
+		text-align: center;
+		background-color: @bgcolor; /* #0079C1 */
+		background: -moz-linear-gradient(center bottom, @bgcolor 0, @bgcolor 20%, @secondary_color 100%);
+		background: -webkit-gradient(linear,left bottom,left top,color-stop(0%,@bgcolor),color-stop(20%, @bgcolor),color-stop(100%, @secondary_color));
+		background: -webkit-linear-gradient(bottom, @bgcolor 0, @bgcolor 20%,@secondary_color 100%);
+		background: -ms-linear-gradient(bottom,@bgcolor 0,@bgcolor 20%,@secondary_color 100%);
+		background: -o-linear-gradient(bottom,@bgcolor 0,@bgcolor 20%,@secondary_color 100%);
+		background: linear-gradient(bottom,@bgcolor 0,@bgcolor 20%,@secondary_color 100%);
+		.btn_box_shadow(lighten(@bgcolor, 20%));
+		.border_radius(@border_radius);
+		border-color: @bgcolor darken(@bgcolor, 10%) darken(@bgcolor, 20%);
+		border-style: solid;
+		border-width: 1px;
+		height: 1.4545em;
+		padding: 5px 15px 6px;
+		-moz-box-sizing: content-box;
+		-webkit-box-sizing: content-box;
+		box-sizing: content-box;
+		cursor: pointer;
+		/* moz-box-shadow: 0 1px rgba(255,255,255,0.2),0 1px #4dbeff inset; */
+		/* -webkit-box-shadow: 0 1px rgba(255, 255, 255, 0.2),0 1px #4DBEFF inset; */
+		/* box-shadow: 0 1px rgba(255, 255, 255, 0.2),0 1px #4DBEFF inset; */
+		text-shadow: 0px 0px 2px black;
+		margin: 5px 0 0 0;
+}
+.striper(@topColor, @bottomColor){
+	border-top: 1px solid @topColor;
+	border-bottom: 1px solid @bottomColor;
+	padding: 6px 0;
+	margin: 0;
+}
+.stripes li, .stripes td {
+	.striper(#dcdcdc, #fff);
+}
+/*-- Colors -------------------------------------------------------------------------------------------------*/
+@accent_color: #e06f1d;
+@tableHeader: #7798bf;
+
+body {
+	font-family: helvetica, arial, sans-serif;
+	font-size: 10pt;
+	color: #777;
+}
+
+
+#filter {
+	position: relative;
+	width: 225px;
+	height: 40px;
+	margin: 10px 10px;
+
+	& > p {
+		margin: 0px 0 2px 0;
+	}
+
+	ul {
+		position: relative;
+		width: 161px;
+		height: 39px;
+		float: left;
+		/* overflow-x: hidden; */
+
+		& > li {
+			position: absolute;
+			top: 5px;
+			left: 0px;
+			
+			&.inactive {
+				left: 225px;
+				visibility: hidden;
+			}
+
+			li {
+				position: static;
+			 }
+		}
+	}
+
+	&>a#go {
+		float: left;
+		.button(#eee, #00692C, #0079C1, #00A1FF, 5px);
+		padding: 5px 12px 5px;		
+	}
+	.triangle{
+		width: 0; 
+		height: 0; 
+		border-top: 10px solid transparent;
+		border-bottom: 10px solid transparent;
+		border-left: 10px solid #fff;
+		display: block;
+	}
+}
