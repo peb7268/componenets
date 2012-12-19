@@ -102,4 +102,5 @@ class SurveyTest extends PHPUnit_Framework_TestCase {
 	
 	//End tests & cleanup
 	public function teardown(){	unset($this->survey); $this->survey = null;	}
+	//
 }
