@@ -13,7 +13,8 @@ require_once('Survey.php');
 //$handle = fopen("./assets/consortium_level_2012/CSV/Sheet_1.csv", "r");
 
 //File Configs
-$base  			= getcwd().'/assets/';		//prod
+//$base  			= getcwd().'/assets/';		//dev
+$base				= './files/assets/';		//cake
 $sub_dir 		= 'consortium_level_2012/';
 $type			= 'CSV/';
 $dir 			= $base.$sub_dir.$type;

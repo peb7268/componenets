@@ -1,7 +1,7 @@
-<?php require_once('./lib/config.php'); ?>
+<?php require_once('lib/config.php'); ?>
 <?php $survey = new Survey($config); 
-	//echo json_encode($survey->config->User);
-	//echo '<pre>'; var_dump($survey); echo '</pre>';
+//echo json_encode($survey->config->User);
+//echo '<pre>'; var_dump($survey); echo '</pre>';
 ?>
 
 <!DOCTYPE html>
@@ -13,19 +13,23 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>Page Title</title>
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
-		var care = {};
-		care.cache 			= <?php echo $survey->result; ?>;
-		care.user 			= care.cache.user;
-		care.info			= care.cache.info;
-		care.data 			= care.cache.data;
+		var care = (function(care){
+			var care = (care || {});
 
-		delete care.cache; //Just doing some DOM cleanup 
-		console.log(care);
+			care.cache			= <?php echo $survey->result; ?>;
+			care.info			= care.cache.info;
+			care.data			= care.cache.data;
+
+			delete care.cache; //Just doing some DOM cleanup 
+			//console.log(care.data[0].report);
+
+			return care;
+		}(care));
 	</script>
 </head>
 <body>
 
 </body>
 </html>
+
